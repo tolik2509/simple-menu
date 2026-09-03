@@ -37,11 +37,6 @@ publishing {
         mavenJava(MavenPublication) {
             // Указываем, что мы публикуем именно Java-компоненты (наш JAR-файл)
             from components.java
-
-            // Эти параметры можно не указывать, если они заданы выше,
-            // но для надежности JitPack лучше прописать их явно здесь:
-            groupId = 'io.github.tolik2509'
-            artifactId = 'simple-menu'
             version = '1.0'
         }
     }
