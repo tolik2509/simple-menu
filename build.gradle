@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish' // Вот эта строчка обязательна для JitPack!
 }
 
 group = 'io.github.tolik2509'
@@ -22,10 +23,6 @@ dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT'
 }
 
-plugins {
-    id 'java'
-    id 'maven-publish' // Вот эта строчка обязательна для JitPack!
-}
 def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
@@ -42,7 +39,7 @@ tasks.withType(JavaCompile) {
 
 // Настройка имени итогового jar-ника (если нужно)
 jar {
-    archiveBaseName = 'simple-menu'
+    archiveBaseName.set('simple-menu')
 }
 tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
