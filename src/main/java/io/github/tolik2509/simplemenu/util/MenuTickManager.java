@@ -5,14 +5,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class MenuTickManager extends BukkitRunnable {
+public class MenuTickManager implements Runnable {
     private final Map<UUID, AbstractMenu> activeMenus = new HashMap<>();
-
-
     public void register(Player player, AbstractMenu menu) {
         this.activeMenus.put(player.getUniqueId(), menu);
         menu.open(player);
@@ -25,7 +24,7 @@ public class MenuTickManager extends BukkitRunnable {
         );
         int currentTick = Bukkit.getCurrentTick();
 
-        for (AbstractMenu menu : activeMenus.values()) {
+        for (AbstractMenu menu : new ArrayList<>(activeMenus.values())) {
             if (currentTick % menu.getUpdateInterval() == 0) {
                 menu.updateMenu();
             }

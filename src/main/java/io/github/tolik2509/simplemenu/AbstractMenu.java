@@ -105,8 +105,8 @@ public abstract class AbstractMenu implements InventoryHolder {
         return true;
     }
 
-    public void addButton(@NotNull Button button, @NotNull Action action, int slot) {
-        int finalSlot = button.slot() != -1 ? button.slot() : slot;
+    public void addButton(@NotNull Button button, @NotNull Action action, int defaultSlot) {
+        int finalSlot = button.slot() != -1 ? button.slot() : defaultSlot;
         addButton(button.item(), action, finalSlot);
     }
 

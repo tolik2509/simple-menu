@@ -21,7 +21,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class ButtonUtil {
-    private static final String BUTTON_KEY = "music_button";
+    private static final String BUTTON_KEY = "menu_button";
     public static Button getButtonFromSection(JavaPlugin plugin, String defName,
                                               @Nullable ConfigurationSection section){
         int slot = section!=null?section.getInt("slot", -1):-1;
