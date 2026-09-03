@@ -22,6 +22,10 @@ dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT'
 }
 
+plugins {
+    id 'java'
+    id 'maven-publish' // Вот эта строчка обязательна для JitPack!
+}
 def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
